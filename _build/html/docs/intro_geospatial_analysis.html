@@ -1,0 +1,3474 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Intro to Python (Optional) &#8212; Data for Climate Action Workshops</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/intro_geospatial_analysis';</script>
+    <link rel="icon" href="../_static/logo_pin.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo_data.png" class="logo__image only-light" alt="Data for Climate Action Workshops - Home"/>
+    <script>document.write(`<img src="../_static/logo_data.png" class="logo__image only-dark" alt="Data for Climate Action Workshops - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_fire_analysis.html">Intro to Geospatial Analysis: Fires</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/via-zhang/data-workshops/blob/main/docs/intro_geospatial_analysis.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/via-zhang/data-workshops" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/via-zhang/data-workshops/issues/new?title=Issue%20on%20page%20%2Fdocs/intro_geospatial_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/intro_geospatial_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro to Python (Optional)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Intro to Python (Optional)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-geospatial-analysis-in-python">Intro to Geospatial Analysis in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-climate-and-economic-justice">Activity: Climate and Economic Justice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-1-we-have-all-of-our-data-loaded-what-do-you-think-about-programming-so-far-is-there-anything-unexpected-to-you-about-python">Checkpoint 1: We have all of our data loaded. What do you think about programming so far? Is there anything unexpected to you about Python?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-mapping">Part 1: Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-make-a-map-with-another-column-from-the-dataset">Question 1: Make a map with another column from the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">Hint</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-2-in-the-pm2-5-percentile-map-was-there-anything-surprising-to-you-about-how-the-data-is-distributed-across-the-state-were-there-any-areas-with-especially-high-or-low-pm2-5-small-particles">Checkpoint 2: In the <code class="docutils literal notranslate"><span class="pre">PM2.5</span> <span class="pre">Percentile</span></code> map, was there anything surprising to you about how the data is distributed across the state? Were there any areas with especially high or low PM2.5 (small particles)?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-correlation-and-graphing">Part 2: Correlation and Graphing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-find-the-correlation-between-variables-you-re-interested-in">Question 2: Find the correlation between variables you’re interested in</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hint</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-data-analysis">Part 3: Data Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-which-census-tracts-have-the-highest-exposure-to-wasterwater-discharge">Question 3: Which census tracts have the highest exposure to wasterwater discharge?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Hint</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further Resources</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><a href="https://colab.research.google.com/github/via-zhang/geo-workshops/blob/main/1_intro_geospatial_analysis.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<p>Welcome! This is a Google Colab file, which allows you to run code all in one place. To make a copy of this document:</p>
+<blockquote>
+<div><p>In the top left corner, click on <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">Colab</span></code>.</p>
+<p>Once you open this in Colab, click on <code class="docutils literal notranslate"><span class="pre">File</span></code> in the upper-left corner, then click on <code class="docutils literal notranslate"><span class="pre">Save</span></code>. You will be prompted to save a copy in your personal Google Drive.</p>
+</div></blockquote>
+<p>To run the code:</p>
+<blockquote>
+<div><p>Each block of code is called a cell. To run a cell, hover over it and click the arrow in the top left of the cell, or click inside of the cell and press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Enter</span></code>.</p>
+</div></blockquote>
+<section class="tex2jax_ignore mathjax_ignore" id="intro-to-python-optional">
+<h1>Intro to Python (Optional)<a class="headerlink" href="#intro-to-python-optional" title="Link to this heading">#</a></h1>
+<p>Review the information below to gain a background understanding of the basics of the Python programming knowledge. This is optional, and you may skip to “Intro to Geospatial Analysis in Python” if you feel ready to begin the activity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a comment. Comments do not impact your code and are meant to serve as notes to explain what the code is doing</span>
+<span class="c1"># This is especially helpful when sharing code with others</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># In Python, the equals sign (=) is used to assign something to a variable</span>
+
+<span class="c1"># Create a variable named anything you want (in this case, named intro) and assign text (&quot;Hello world!&quot;) to it</span>
+<span class="n">intro</span> <span class="o">=</span> <span class="s2">&quot;Hello world!&quot;</span>
+
+<span class="c1"># Print out the value stored in the variable below this cell</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intro</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are different types of data you can work with in Python</span>
+<span class="c1"># You can use type() to check the type of a variable</span>
+
+<span class="c1"># Strings (AKA text)</span>
+<span class="n">ex_string</span> <span class="o">=</span> <span class="s2">&quot;This is a string&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex_string</span><span class="p">))</span>
+
+<span class="c1"># Integers (AKA whole numbers)</span>
+<span class="n">ex_int</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex_int</span><span class="p">))</span>
+
+<span class="c1"># Floats (AKA decimals)</span>
+<span class="n">ex_float</span> <span class="o">=</span> <span class="mf">1.234</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex_float</span><span class="p">))</span>
+
+<span class="c1"># Booleans (AKA true and false)</span>
+<span class="n">ex_boolean</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex_boolean</span><span class="p">))</span>
+
+<span class="c1"># Lists (a list of any of the same data type)</span>
+<span class="n">ex_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;bool&#39;&gt;
+&lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can create functions with Python to complete a series of actions based on input variable(s)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">name_of_function</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+  <span class="c1"># Do something with the input</span>
+  <span class="k">return</span> <span class="n">output</span>
+
+<span class="c1"># Example of a function to multiply the input by 2</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply_by_2</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+  <span class="n">output</span> <span class="o">=</span> <span class="nb">input</span> <span class="o">*</span> <span class="mi">2</span>
+  <span class="nb">print</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="s2">&quot;becomes&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">output</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">multiply_by_2</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output:&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 becomes 20
+Output: 20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Learn more about Python with these free resources</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://cs50.harvard.edu/python/2022/">Harvard’s CS50’s Introduction to Programming with Python</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/edu/python">Google’s Python Class</a></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="intro-to-geospatial-analysis-in-python">
+<h1>Intro to Geospatial Analysis in Python<a class="headerlink" href="#intro-to-geospatial-analysis-in-python" title="Link to this heading">#</a></h1>
+<section id="activity-climate-and-economic-justice">
+<h2>Activity: Climate and Economic Justice<a class="headerlink" href="#activity-climate-and-economic-justice" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Data: <a class="reference external" href="https://screeningtool.geoplatform.gov/en/">https://screeningtool.geoplatform.gov/en/</a></p>
+<p>More Info: <a class="reference external" href="https://screeningtool.geoplatform.gov/en/methodology">https://screeningtool.geoplatform.gov/en/methodology</a></p>
+</div></blockquote>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install packages used to create maps</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter the full name of the state you want to analyze inside of the quotation marks. Make sure it is capitalized</span>
+<span class="c1"># Example (write this but without the # sybmol at the front):</span>
+<span class="c1"># state_name = &quot;New York&quot;</span>
+
+<span class="n">state_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the rest of the code in this section (no need to edit anything yet). If you get an error saying <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'pd'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code>, run the code above that starts with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Install</span> <span class="pre">packages</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">create</span> <span class="pre">maps</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data directly from URL (this temporarily loads a copy of the data to this Google Colab notebook and will be deleted after closing the tab)</span>
+<span class="c1"># This might take a few seconds to a minute to run</span>
+
+<span class="n">ej_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://static-data-screeningtool.geoplatform.gov/data-versions/1.0/data/score/downloadable/1.0-communities.csv&quot;</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ej_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Census tract 2010 ID&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-42252f1a-cf0e-4b71-87b8-e45a8c6128f9" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Census tract 2010 ID</th>
+      <th>County Name</th>
+      <th>State/Territory</th>
+      <th>Percent Black or African American alone</th>
+      <th>Percent American Indian / Alaska Native</th>
+      <th>Percent Asian</th>
+      <th>Percent Native Hawaiian or Pacific</th>
+      <th>Percent two or more races</th>
+      <th>Percent White</th>
+      <th>Percent Hispanic or Latino</th>
+      <th>...</th>
+      <th>Percent individuals age 25 or over with less than high school degree</th>
+      <th>Percent of residents who are not currently enrolled in higher ed</th>
+      <th>Unemployment (percent) in 2009 (island areas) and 2010 (states and PR)</th>
+      <th>Percentage households below 100% of federal poverty line in 2009 (island areas) and 2010 (states and PR)</th>
+      <th>Greater than or equal to the 90th percentile for unemployment and has low HS education in 2009 (island areas)?</th>
+      <th>Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS education in 2009 (island areas)?</th>
+      <th>Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS education in 2009 (island areas)?</th>
+      <th>Number of Tribal areas within Census tract for Alaska</th>
+      <th>Names of Tribal areas within Census tract</th>
+      <th>Percent of the Census tract that is within Tribal areas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1001020100</td>
+      <td>Autauga County</td>
+      <td>Alabama</td>
+      <td>0.07</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.07</td>
+      <td>0.83</td>
+      <td>0.01</td>
+      <td>...</td>
+      <td>12.0</td>
+      <td>91.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1001020200</td>
+      <td>Autauga County</td>
+      <td>Alabama</td>
+      <td>0.57</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.38</td>
+      <td>0.01</td>
+      <td>...</td>
+      <td>14.0</td>
+      <td>96.0</td>
+      <td>5.0</td>
+      <td>14.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1001020300</td>
+      <td>Autauga County</td>
+      <td>Alabama</td>
+      <td>0.24</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.65</td>
+      <td>0.06</td>
+      <td>...</td>
+      <td>14.0</td>
+      <td>97.0</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1001020400</td>
+      <td>Autauga County</td>
+      <td>Alabama</td>
+      <td>0.05</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.03</td>
+      <td>0.89</td>
+      <td>0.01</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>94.0</td>
+      <td>3.0</td>
+      <td>6.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1001020500</td>
+      <td>Autauga County</td>
+      <td>Alabama</td>
+      <td>0.18</td>
+      <td>0.0</td>
+      <td>0.03</td>
+      <td>0.00</td>
+      <td>0.02</td>
+      <td>0.70</td>
+      <td>0.04</td>
+      <td>...</td>
+      <td>7.0</td>
+      <td>94.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>74129</th>
+      <td>78030960900</td>
+      <td>NaN</td>
+      <td>Virgin Islands</td>
+      <td>0.76</td>
+      <td>0.0</td>
+      <td>0.03</td>
+      <td>NaN</td>
+      <td>0.01</td>
+      <td>0.14</td>
+      <td>0.10</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>21.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>74130</th>
+      <td>78030961000</td>
+      <td>NaN</td>
+      <td>Virgin Islands</td>
+      <td>0.85</td>
+      <td>0.0</td>
+      <td>0.01</td>
+      <td>NaN</td>
+      <td>0.01</td>
+      <td>0.07</td>
+      <td>0.20</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>27.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>74131</th>
+      <td>78030961100</td>
+      <td>NaN</td>
+      <td>Virgin Islands</td>
+      <td>0.89</td>
+      <td>0.0</td>
+      <td>0.02</td>
+      <td>NaN</td>
+      <td>0.00</td>
+      <td>0.05</td>
+      <td>0.11</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>28.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>74132</th>
+      <td>78030961200</td>
+      <td>NaN</td>
+      <td>Virgin Islands</td>
+      <td>0.90</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>0.01</td>
+      <td>0.04</td>
+      <td>0.14</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.0</td>
+      <td>29.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>74133</th>
+      <td>78030990000</td>
+      <td>NaN</td>
+      <td>Virgin Islands</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>74134 rows × 133 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-42252f1a-cf0e-4b71-87b8-e45a8c6128f9')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-42252f1a-cf0e-4b71-87b8-e45a8c6128f9 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-42252f1a-cf0e-4b71-87b8-e45a8c6128f9');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-a8046664-ae73-4e46-baa5-1794ac248b14">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a8046664-ae73-4e46-baa5-1794ac248b14')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-a8046664-ae73-4e46-baa5-1794ac248b14 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a dictionary (AKA a list of corresponding values) in Python</span>
+<span class="c1"># We&#39;ll use this to get the FIPS code for the state we want to analyze</span>
+
+<span class="n">FIPS_dictionary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Alabama&quot;</span><span class="p">:</span> <span class="s2">&quot;01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Alaska&quot;</span><span class="p">:</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Arizona&quot;</span><span class="p">:</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Arkansas&quot;</span><span class="p">:</span> <span class="s2">&quot;05&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;California&quot;</span><span class="p">:</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Colorado&quot;</span><span class="p">:</span> <span class="s2">&quot;08&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Connecticut&quot;</span><span class="p">:</span> <span class="s2">&quot;09&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Delaware&quot;</span><span class="p">:</span> <span class="s2">&quot;10&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;District Of Columbia&quot;</span><span class="p">:</span> <span class="s2">&quot;11&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Florida&quot;</span><span class="p">:</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Georgia&quot;</span><span class="p">:</span> <span class="s2">&quot;13&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hawaii&quot;</span><span class="p">:</span> <span class="s2">&quot;15&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Idaho&quot;</span><span class="p">:</span> <span class="s2">&quot;16&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Illinois&quot;</span><span class="p">:</span> <span class="s2">&quot;17&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Indiana&quot;</span><span class="p">:</span> <span class="s2">&quot;18&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Iowa&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Kansas&quot;</span><span class="p">:</span> <span class="s2">&quot;20&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Kentucky&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Louisiana&quot;</span><span class="p">:</span> <span class="s2">&quot;22&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Maine&quot;</span><span class="p">:</span> <span class="s2">&quot;23&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Maryland&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Massachusetts&quot;</span><span class="p">:</span> <span class="s2">&quot;25&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Michigan&quot;</span><span class="p">:</span> <span class="s2">&quot;26&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Minnesota&quot;</span><span class="p">:</span> <span class="s2">&quot;27&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Mississippi&quot;</span><span class="p">:</span> <span class="s2">&quot;28&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Missouri&quot;</span><span class="p">:</span> <span class="s2">&quot;29&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Montana&quot;</span><span class="p">:</span> <span class="s2">&quot;30&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Nebraska&quot;</span><span class="p">:</span> <span class="s2">&quot;31&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Nevada&quot;</span><span class="p">:</span> <span class="s2">&quot;32&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;New Hampshire&quot;</span><span class="p">:</span> <span class="s2">&quot;33&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;New Jersey&quot;</span><span class="p">:</span> <span class="s2">&quot;34&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;New Mexico&quot;</span><span class="p">:</span> <span class="s2">&quot;35&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;New York&quot;</span><span class="p">:</span> <span class="s2">&quot;36&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;North Carolina&quot;</span><span class="p">:</span> <span class="s2">&quot;37&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;North Dakota&quot;</span><span class="p">:</span> <span class="s2">&quot;38&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Ohio&quot;</span><span class="p">:</span> <span class="s2">&quot;39&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Oklahoma&quot;</span><span class="p">:</span> <span class="s2">&quot;40&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Oregon&quot;</span><span class="p">:</span> <span class="s2">&quot;41&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Pennsylvania&quot;</span><span class="p">:</span> <span class="s2">&quot;42&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Rhode Island&quot;</span><span class="p">:</span> <span class="s2">&quot;44&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;South Carolina&quot;</span><span class="p">:</span> <span class="s2">&quot;45&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;South Dakota&quot;</span><span class="p">:</span> <span class="s2">&quot;46&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Tennessee&quot;</span><span class="p">:</span> <span class="s2">&quot;47&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Texas&quot;</span><span class="p">:</span> <span class="s2">&quot;48&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Utah&quot;</span><span class="p">:</span> <span class="s2">&quot;49&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Vermont&quot;</span><span class="p">:</span> <span class="s2">&quot;50&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Virginia&quot;</span><span class="p">:</span> <span class="s2">&quot;51&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Washington&quot;</span><span class="p">:</span> <span class="s2">&quot;53&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;West Virginia&quot;</span><span class="p">:</span> <span class="s2">&quot;54&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Wisconsin&quot;</span><span class="p">:</span> <span class="s2">&quot;55&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Wyoming&quot;</span><span class="p">:</span> <span class="s2">&quot;56&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># This will output the corresponding FIPS code of the state, which we&#39;ll use below to download the state boudary</span>
+<span class="n">state_id</span> <span class="o">=</span> <span class="n">FIPS_dictionary</span><span class="p">[</span><span class="n">state_name</span><span class="o">.</span><span class="n">title</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you get an error at this point, please double check that the name of the state in the code block above is spelled correctly and begins with a capital letter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download census tract boundaries for state from https://www2.census.gov/geo/tiger/TIGER2010/TRACT/2010/</span>
+<span class="c1"># This might take a few seconds to a minute to run</span>
+
+<span class="n">census_tract_boundaries</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;https://www2.census.gov/geo/tiger/TIGER2010/TRACT/2010/tl_2010_</span><span class="si">{</span><span class="n">state_id</span><span class="si">}</span><span class="s2">_tract10.zip&quot;</span><span class="p">)</span>
+
+<span class="n">census_tract_boundaries</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TRACTCE10&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a136f72d-cca4-47f9-93c8-52200fe3b866" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>STATEFP10</th>
+      <th>COUNTYFP10</th>
+      <th>TRACTCE10</th>
+      <th>GEOID10</th>
+      <th>NAME10</th>
+      <th>NAMELSAD10</th>
+      <th>MTFCC10</th>
+      <th>FUNCSTAT10</th>
+      <th>ALAND10</th>
+      <th>AWATER10</th>
+      <th>INTPTLAT10</th>
+      <th>INTPTLON10</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1792</th>
+      <td>42</td>
+      <td>075</td>
+      <td>000100</td>
+      <td>42075000100</td>
+      <td>1</td>
+      <td>Census Tract 1</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>1599857</td>
+      <td>0</td>
+      <td>+40.3375658</td>
+      <td>-076.4185825</td>
+      <td>POLYGON ((-76.41168 40.33306, -76.41186 40.333...</td>
+    </tr>
+    <tr>
+      <th>783</th>
+      <td>42</td>
+      <td>049</td>
+      <td>000100</td>
+      <td>42049000100</td>
+      <td>1</td>
+      <td>Census Tract 1</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>732980</td>
+      <td>10113</td>
+      <td>+42.1262503</td>
+      <td>-080.0822810</td>
+      <td>POLYGON ((-80.07637 42.12314, -80.07661 42.123...</td>
+    </tr>
+    <tr>
+      <th>1632</th>
+      <td>42</td>
+      <td>081</td>
+      <td>000100</td>
+      <td>42081000100</td>
+      <td>1</td>
+      <td>Census Tract 1</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>2494788</td>
+      <td>3384</td>
+      <td>+41.2592498</td>
+      <td>-076.9951876</td>
+      <td>POLYGON ((-76.99148 41.26180, -76.98804 41.261...</td>
+    </tr>
+    <tr>
+      <th>2432</th>
+      <td>42</td>
+      <td>101</td>
+      <td>000100</td>
+      <td>42101000100</td>
+      <td>1</td>
+      <td>Census Tract 1</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>704909</td>
+      <td>0</td>
+      <td>+39.9523827</td>
+      <td>-075.1466628</td>
+      <td>POLYGON ((-75.14147 39.95170, -75.14150 39.951...</td>
+    </tr>
+    <tr>
+      <th>1505</th>
+      <td>42</td>
+      <td>107</td>
+      <td>000100</td>
+      <td>42107000100</td>
+      <td>1</td>
+      <td>Census Tract 1</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>177402125</td>
+      <td>590970</td>
+      <td>+40.8889797</td>
+      <td>-076.1590292</td>
+      <td>POLYGON ((-76.17510 40.94118, -76.17321 40.940...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2146</th>
+      <td>42</td>
+      <td>041</td>
+      <td>981606</td>
+      <td>42041981606</td>
+      <td>9816.06</td>
+      <td>Census Tract 9816.06</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>1097111</td>
+      <td>80398</td>
+      <td>+40.1575779</td>
+      <td>-076.9816136</td>
+      <td>POLYGON ((-76.98171 40.16322, -76.98162 40.163...</td>
+    </tr>
+    <tr>
+      <th>443</th>
+      <td>42</td>
+      <td>003</td>
+      <td>981800</td>
+      <td>42003981800</td>
+      <td>9818</td>
+      <td>Census Tract 9818</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>1652680</td>
+      <td>310067</td>
+      <td>+40.4790228</td>
+      <td>-079.8942288</td>
+      <td>POLYGON ((-79.89918 40.47606, -79.90030 40.475...</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>42</td>
+      <td>003</td>
+      <td>982200</td>
+      <td>42003982200</td>
+      <td>9822</td>
+      <td>Census Tract 9822</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>505672</td>
+      <td>0</td>
+      <td>+40.4444879</td>
+      <td>-079.9547652</td>
+      <td>POLYGON ((-79.95266 40.44181, -79.95288 40.441...</td>
+    </tr>
+    <tr>
+      <th>2788</th>
+      <td>42</td>
+      <td>101</td>
+      <td>989100</td>
+      <td>42101989100</td>
+      <td>9891</td>
+      <td>Census Tract 9891</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>2664969</td>
+      <td>1649710</td>
+      <td>+40.0377830</td>
+      <td>-075.0034085</td>
+      <td>POLYGON ((-74.99019 40.03634, -74.99098 40.035...</td>
+    </tr>
+    <tr>
+      <th>759</th>
+      <td>42</td>
+      <td>049</td>
+      <td>990000</td>
+      <td>42049990000</td>
+      <td>9900</td>
+      <td>Census Tract 9900</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>0</td>
+      <td>1905366294</td>
+      <td>+42.2540583</td>
+      <td>-080.1699374</td>
+      <td>POLYGON ((-80.05829 42.15007, -80.06298 42.147...</td>
+    </tr>
+  </tbody>
+</table>
+<p>3218 rows × 13 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a136f72d-cca4-47f9-93c8-52200fe3b866')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-a136f72d-cca4-47f9-93c8-52200fe3b866 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-a136f72d-cca4-47f9-93c8-52200fe3b866');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-cecc0753-98a7-489d-b5f4-1f25faed9a65">
+  <button class="colab-df-quickchart" onclick="quickchart('df-cecc0753-98a7-489d-b5f4-1f25faed9a65')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-cecc0753-98a7-489d-b5f4-1f25faed9a65 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add leading zeros to &#39;Census tract 2010 ID&#39; column so each has length of 11. This helps prepare the data for merging with the other dataset</span>
+<span class="n">ej_data</span><span class="p">[</span><span class="s1">&#39;GEOID10&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ej_data</span><span class="p">[</span><span class="s1">&#39;Census tract 2010 ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:0&gt;11}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+
+<span class="c1"># Merge the data with the census tract boundaries for the selected state</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">census_tract_boundaries</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ej_data</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;GEOID10&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># View the data</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-9d0eeec1-6692-4291-ad81-eb4fe8f3c764" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>STATEFP10</th>
+      <th>COUNTYFP10</th>
+      <th>TRACTCE10</th>
+      <th>GEOID10</th>
+      <th>NAME10</th>
+      <th>NAMELSAD10</th>
+      <th>MTFCC10</th>
+      <th>FUNCSTAT10</th>
+      <th>ALAND10</th>
+      <th>AWATER10</th>
+      <th>...</th>
+      <th>Percent individuals age 25 or over with less than high school degree</th>
+      <th>Percent of residents who are not currently enrolled in higher ed</th>
+      <th>Unemployment (percent) in 2009 (island areas) and 2010 (states and PR)</th>
+      <th>Percentage households below 100% of federal poverty line in 2009 (island areas) and 2010 (states and PR)</th>
+      <th>Greater than or equal to the 90th percentile for unemployment and has low HS education in 2009 (island areas)?</th>
+      <th>Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS education in 2009 (island areas)?</th>
+      <th>Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS education in 2009 (island areas)?</th>
+      <th>Number of Tribal areas within Census tract for Alaska</th>
+      <th>Names of Tribal areas within Census tract</th>
+      <th>Percent of the Census tract that is within Tribal areas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>42</td>
+      <td>003</td>
+      <td>560500</td>
+      <td>42003560500</td>
+      <td>5605</td>
+      <td>Census Tract 5605</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>464657</td>
+      <td>0</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>88.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>42</td>
+      <td>003</td>
+      <td>560400</td>
+      <td>42003560400</td>
+      <td>5604</td>
+      <td>Census Tract 5604</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>511109</td>
+      <td>0</td>
+      <td>...</td>
+      <td>4.0</td>
+      <td>80.0</td>
+      <td>7.0</td>
+      <td>24.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>42</td>
+      <td>003</td>
+      <td>552400</td>
+      <td>42003552400</td>
+      <td>5524</td>
+      <td>Census Tract 5524</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>2044853</td>
+      <td>200574</td>
+      <td>...</td>
+      <td>11.0</td>
+      <td>93.0</td>
+      <td>5.0</td>
+      <td>30.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>42</td>
+      <td>003</td>
+      <td>552300</td>
+      <td>42003552300</td>
+      <td>5523</td>
+      <td>Census Tract 5523</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>830982</td>
+      <td>0</td>
+      <td>...</td>
+      <td>16.0</td>
+      <td>89.0</td>
+      <td>9.0</td>
+      <td>31.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>003</td>
+      <td>552200</td>
+      <td>42003552200</td>
+      <td>5522</td>
+      <td>Census Tract 5522</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>804538</td>
+      <td>243347</td>
+      <td>...</td>
+      <td>11.0</td>
+      <td>94.0</td>
+      <td>14.0</td>
+      <td>24.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3213</th>
+      <td>42</td>
+      <td>109</td>
+      <td>070200</td>
+      <td>42109070200</td>
+      <td>702</td>
+      <td>Census Tract 702</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>120426746</td>
+      <td>1747046</td>
+      <td>...</td>
+      <td>12.0</td>
+      <td>95.0</td>
+      <td>2.0</td>
+      <td>11.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3214</th>
+      <td>42</td>
+      <td>109</td>
+      <td>070300</td>
+      <td>42109070300</td>
+      <td>703</td>
+      <td>Census Tract 703</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>128826883</td>
+      <td>960075</td>
+      <td>...</td>
+      <td>10.0</td>
+      <td>96.0</td>
+      <td>4.0</td>
+      <td>13.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3215</th>
+      <td>42</td>
+      <td>109</td>
+      <td>070600</td>
+      <td>42109070600</td>
+      <td>706</td>
+      <td>Census Tract 706</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>135524410</td>
+      <td>858814</td>
+      <td>...</td>
+      <td>25.0</td>
+      <td>97.0</td>
+      <td>6.0</td>
+      <td>6.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3216</th>
+      <td>42</td>
+      <td>109</td>
+      <td>070701</td>
+      <td>42109070701</td>
+      <td>707.01</td>
+      <td>Census Tract 707.01</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>3926593</td>
+      <td>179533</td>
+      <td>...</td>
+      <td>5.0</td>
+      <td>97.0</td>
+      <td>7.0</td>
+      <td>11.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3217</th>
+      <td>42</td>
+      <td>109</td>
+      <td>980705</td>
+      <td>42109980705</td>
+      <td>9807.05</td>
+      <td>Census Tract 9807.05</td>
+      <td>G5020</td>
+      <td>S</td>
+      <td>816547</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>19.0</td>
+      <td>47.0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>3218 rows × 146 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9d0eeec1-6692-4291-ad81-eb4fe8f3c764')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-9d0eeec1-6692-4291-ad81-eb4fe8f3c764 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-9d0eeec1-6692-4291-ad81-eb4fe8f3c764');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-b11a79c4-b3e6-4099-9cab-2798d3db8392">
+  <button class="colab-df-quickchart" onclick="quickchart('df-b11a79c4-b3e6-4099-9cab-2798d3db8392')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-b11a79c4-b3e6-4099-9cab-2798d3db8392 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_f2b2ba3a-ba17-4d0b-838c-e22eb5f03ad8">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('data')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_f2b2ba3a-ba17-4d0b-838c-e22eb5f03ad8 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('data');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Notice how the lower-left corner of the table says <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">rows</span> <span class="pre">x</span> <span class="pre">146</span> <span class="pre">columns</span></code>. What’s printed above is only a small part of the dataset, and we have a lot more rows and columns to work with. To see the names of all the columns, run the code below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print names of columns in the dataset</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">ej_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Census tract 2010 ID&#39;,
+ &#39;County Name&#39;,
+ &#39;State/Territory&#39;,
+ &#39;Percent Black or African American alone&#39;,
+ &#39;Percent American Indian / Alaska Native&#39;,
+ &#39;Percent Asian&#39;,
+ &#39;Percent Native Hawaiian or Pacific&#39;,
+ &#39;Percent two or more races&#39;,
+ &#39;Percent White&#39;,
+ &#39;Percent Hispanic or Latino&#39;,
+ &#39;Percent other races&#39;,
+ &#39;Percent age under 10&#39;,
+ &#39;Percent age 10 to 64&#39;,
+ &#39;Percent age over 64&#39;,
+ &#39;Total threshold criteria exceeded&#39;,
+ &#39;Total categories exceeded&#39;,
+ &#39;Identified as disadvantaged without considering neighbors&#39;,
+ &#39;Identified as disadvantaged based on neighbors and relaxed low income threshold only&#39;,
+ &#39;Identified as disadvantaged due to tribal overlap&#39;,
+ &#39;Identified as disadvantaged&#39;,
+ &#39;Percentage of tract that is disadvantaged by area&#39;,
+ &#39;Share of neighbors that are identified as disadvantaged&#39;,
+ &#39;Total population&#39;,
+ &#39;Adjusted percent of individuals below 200% Federal Poverty Line (percentile)&#39;,
+ &#39;Adjusted percent of individuals below 200% Federal Poverty Line&#39;,
+ &#39;Is low income?&#39;,
+ &#39;Income data has been estimated based on geographic neighbor income&#39;,
+ &#39;Greater than or equal to the 90th percentile for expected agriculture loss rate and is low income?&#39;,
+ &#39;Expected agricultural loss rate (Natural Hazards Risk Index) (percentile)&#39;,
+ &#39;Expected agricultural loss rate (Natural Hazards Risk Index)&#39;,
+ &#39;Greater than or equal to the 90th percentile for expected building loss rate and is low income?&#39;,
+ &#39;Expected building loss rate (Natural Hazards Risk Index) (percentile)&#39;,
+ &#39;Expected building loss rate (Natural Hazards Risk Index)&#39;,
+ &#39;Greater than or equal to the 90th percentile for expected population loss rate and is low income?&#39;,
+ &#39;Expected population loss rate (Natural Hazards Risk Index) (percentile)&#39;,
+ &#39;Expected population loss rate (Natural Hazards Risk Index)&#39;,
+ &#39;Share of properties at risk of flood in 30 years (percentile)&#39;,
+ &#39;Share of properties at risk of flood in 30 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for share of properties at risk of flood in 30 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for share of properties at risk of flood in 30 years and is low income?&#39;,
+ &#39;Share of properties at risk of fire in 30 years (percentile)&#39;,
+ &#39;Share of properties at risk of fire in 30 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for share of properties at risk of fire in 30 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for share of properties at risk of fire in 30 years and is low income?&#39;,
+ &#39;Greater than or equal to the 90th percentile for energy burden and is low income?&#39;,
+ &#39;Energy burden (percentile)&#39;,
+ &#39;Energy burden&#39;,
+ &#39;Greater than or equal to the 90th percentile for PM2.5 exposure and is low income?&#39;,
+ &#39;PM2.5 in the air (percentile)&#39;,
+ &#39;PM2.5 in the air&#39;,
+ &#39;Greater than or equal to the 90th percentile for diesel particulate matter and is low income?&#39;,
+ &#39;Diesel particulate matter exposure (percentile)&#39;,
+ &#39;Diesel particulate matter exposure&#39;,
+ &#39;Greater than or equal to the 90th percentile for traffic proximity and is low income?&#39;,
+ &#39;Traffic proximity and volume (percentile)&#39;,
+ &#39;Traffic proximity and volume&#39;,
+ &#39;Greater than or equal to the 90th percentile for DOT transit barriers and is low income?&#39;,
+ &#39;DOT Travel Barriers Score (percentile)&#39;,
+ &#39;Greater than or equal to the 90th percentile for housing burden and is low income?&#39;,
+ &#39;Housing burden (percent) (percentile)&#39;,
+ &#39;Housing burden (percent)&#39;,
+ &#39;Greater than or equal to the 90th percentile for lead paint, the median house value is less than 90th percentile and is low income?&#39;,
+ &#39;Percent pre-1960s housing (lead paint indicator) (percentile)&#39;,
+ &#39;Percent pre-1960s housing (lead paint indicator)&#39;,
+ &#39;Median value ($) of owner-occupied housing units (percentile)&#39;,
+ &#39;Median value ($) of owner-occupied housing units&#39;,
+ &quot;Greater than or equal to the 90th percentile for share of the tract&#39;s land area that is covered by impervious surface or cropland as a percent and is low income?&quot;,
+ &quot;Greater than or equal to the 90th percentile for share of the tract&#39;s land area that is covered by impervious surface or cropland as a percent&quot;,
+ &quot;Share of the tract&#39;s land area that is covered by impervious surface or cropland as a percent&quot;,
+ &quot;Share of the tract&#39;s land area that is covered by impervious surface or cropland as a percent (percentile)&quot;,
+ &#39;Does the tract have at least 35 acres in it?&#39;,
+ &#39;Tract experienced historic underinvestment and remains low income&#39;,
+ &#39;Tract experienced historic underinvestment&#39;,
+ &#39;Share of homes with no kitchen or indoor plumbing (percentile)&#39;,
+ &#39;Share of homes with no kitchen or indoor plumbing (percent)&#39;,
+ &#39;Greater than or equal to the 90th percentile for proximity to hazardous waste facilities and is low income?&#39;,
+ &#39;Proximity to hazardous waste sites (percentile)&#39;,
+ &#39;Proximity to hazardous waste sites&#39;,
+ &#39;Greater than or equal to the 90th percentile for proximity to superfund sites and is low income?&#39;,
+ &#39;Proximity to NPL (Superfund) sites (percentile)&#39;,
+ &#39;Proximity to NPL (Superfund) sites&#39;,
+ &#39;Greater than or equal to the 90th percentile for proximity to RMP sites and is low income?&#39;,
+ &#39;Proximity to Risk Management Plan (RMP) facilities (percentile)&#39;,
+ &#39;Proximity to Risk Management Plan (RMP) facilities&#39;,
+ &#39;Is there at least one Formerly Used Defense Site (FUDS) in the tract?&#39;,
+ &#39;Is there at least one abandoned mine in this census tract?&#39;,
+ &#39;There is at least one abandoned mine in this census tract and the tract is low income.&#39;,
+ &#39;There is at least one Formerly Used Defense Site (FUDS) in the tract and the tract is low income.&#39;,
+ &#39;Is there at least one Formerly Used Defense Site (FUDS) in the tract, where missing data is treated as False?&#39;,
+ &#39;Is there at least one abandoned mine in this census tract, where missing data is treated as False?&#39;,
+ &#39;Greater than or equal to the 90th percentile for wastewater discharge and is low income?&#39;,
+ &#39;Wastewater discharge (percentile)&#39;,
+ &#39;Wastewater discharge&#39;,
+ &#39;Greater than or equal to the 90th percentile for leaky underground storage tanks and is low income?&#39;,
+ &#39;Leaky underground storage tanks (percentile)&#39;,
+ &#39;Leaky underground storage tanks&#39;,
+ &#39;Greater than or equal to the 90th percentile for asthma and is low income?&#39;,
+ &#39;Current asthma among adults aged greater than or equal to 18 years (percentile)&#39;,
+ &#39;Current asthma among adults aged greater than or equal to 18 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for diabetes and is low income?&#39;,
+ &#39;Diagnosed diabetes among adults aged greater than or equal to 18 years (percentile)&#39;,
+ &#39;Diagnosed diabetes among adults aged greater than or equal to 18 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for heart disease and is low income?&#39;,
+ &#39;Coronary heart disease among adults aged greater than or equal to 18 years (percentile)&#39;,
+ &#39;Coronary heart disease among adults aged greater than or equal to 18 years&#39;,
+ &#39;Greater than or equal to the 90th percentile for low life expectancy and is low income?&#39;,
+ &#39;Low life expectancy (percentile)&#39;,
+ &#39;Life expectancy (years)&#39;,
+ &#39;Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS attainment?&#39;,
+ &#39;Low median household income as a percent of area median income (percentile)&#39;,
+ &#39;Median household income as a percent of area median income&#39;,
+ &#39;Greater than or equal to the 90th percentile for households in linguistic isolation and has low HS attainment?&#39;,
+ &#39;Linguistic isolation (percent) (percentile)&#39;,
+ &#39;Linguistic isolation (percent)&#39;,
+ &#39;Greater than or equal to the 90th percentile for unemployment and has low HS attainment?&#39;,
+ &#39;Unemployment (percent) (percentile)&#39;,
+ &#39;Unemployment (percent)&#39;,
+ &#39;Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS attainment?&#39;,
+ &#39;Percent of individuals below 200% Federal Poverty Line (percentile)&#39;,
+ &#39;Percent of individuals below 200% Federal Poverty Line&#39;,
+ &#39;Percent of individuals &lt; 100% Federal Poverty Line (percentile)&#39;,
+ &#39;Percent of individuals &lt; 100% Federal Poverty Line&#39;,
+ &#39;Percent individuals age 25 or over with less than high school degree (percentile)&#39;,
+ &#39;Percent individuals age 25 or over with less than high school degree&#39;,
+ &#39;Percent of residents who are not currently enrolled in higher ed&#39;,
+ &#39;Unemployment (percent) in 2009 (island areas) and 2010 (states and PR)&#39;,
+ &#39;Percentage households below 100% of federal poverty line in 2009 (island areas) and 2010 (states and PR)&#39;,
+ &#39;Greater than or equal to the 90th percentile for unemployment and has low HS education in 2009 (island areas)?&#39;,
+ &#39;Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS education in 2009 (island areas)?&#39;,
+ &#39;Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS education in 2009 (island areas)?&#39;,
+ &#39;Number of Tribal areas within Census tract for Alaska&#39;,
+ &#39;Names of Tribal areas within Census tract&#39;,
+ &#39;Percent of the Census tract that is within Tribal areas&#39;,
+ &#39;GEOID10&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-1-we-have-all-of-our-data-loaded-what-do-you-think-about-programming-so-far-is-there-anything-unexpected-to-you-about-python">
+<h3>Checkpoint 1: We have all of our data loaded. What do you think about programming so far? Is there anything unexpected to you about Python?<a class="headerlink" href="#checkpoint-1-we-have-all-of-our-data-loaded-what-do-you-think-about-programming-so-far-is-there-anything-unexpected-to-you-about-python" title="Link to this heading">#</a></h3>
+<p>Answer in the text block below:</p>
+</section>
+<section id="part-1-mapping">
+<h3>Part 1: Mapping<a class="headerlink" href="#part-1-mapping" title="Link to this heading">#</a></h3>
+<p>Using Python, we can map a specific column of the dataset. In the examples below, we will make a <strong>choropleth map</strong>, which shows different colors based on the data and region. First, we’ll make a map of the percentile of PM2.5 (which are small particles that pollute the air). Percentiles tell us the percent of the U.S. population with an equal or lower value. For example, a community at the 90th percentile for PM2.5 would have levels greater than or equal to 90% of the rest of the population, indicating worse air quality (and more disadvantage &amp; environmental burden).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;PM2.5 in the air (percentile)&#39;</span><span class="p">,</span> <span class="c1"># Name of the column</span>
+          <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+          <span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span>
+              <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;PM2.5 in the Air (Percentile)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span>
+          <span class="p">},</span>
+          <span class="n">missing_kwds</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Missing Data&#39;</span>
+            <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># Don&#39;t show grid lines</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;PM2.5 Percentile </span><span class="se">\n</span><span class="s1">Census Tracts in </span><span class="si">{</span><span class="n">state_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create a text box in the lower-left corner to cite the data source</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Source: The Climate and Economic Justice Screening Tool </span><span class="se">\n</span><span class="s1">by the White House Council on Environmental Quality&#39;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">.08</span><span class="p">),</span>
+            <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;figure fraction&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+            <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#555555&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.08, 0.08, &#39;Source: The Climate and Economic Justice Screening Tool \nby the White House Council on Environmental Quality&#39;)
+</pre></div>
+</div>
+<img alt="../_images/1eeab957c67b46e996926bf169d2ce0eb7b78273347519ee9136f3cb2de05529.png" src="../_images/1eeab957c67b46e996926bf169d2ce0eb7b78273347519ee9136f3cb2de05529.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s define a function to make these maps</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">makeMap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">variable</span><span class="p">):</span>
+  <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+  <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span> <span class="c1"># Name of the column</span>
+            <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+            <span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">variable</span><span class="p">,</span>
+                <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span>
+            <span class="p">},</span>
+            <span class="n">missing_kwds</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Missing Data&#39;</span>
+            <span class="p">}</span>
+  <span class="p">)</span>
+
+  <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">variable</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">Census Tracts in </span><span class="si">{</span><span class="n">state_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+  <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s2">&quot;Source: The Climate and Economic Justice Screening Tool </span><span class="se">\n</span><span class="s2">by the White House Council on Environmental Quality&quot;</span><span class="p">,</span>
+              <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">.08</span><span class="p">),</span>
+              <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;figure fraction&#39;</span><span class="p">,</span>
+              <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+              <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+              <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+              <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#555555&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s test the function</span>
+<span class="n">makeMap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Energy burden (percentile)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fe49dbf2fad7db7ebe03347dd445c5e90f406eb70678ab354c161e1598846351.png" src="../_images/fe49dbf2fad7db7ebe03347dd445c5e90f406eb70678ab354c161e1598846351.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">makeMap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Linguistic isolation (percent) (percentile)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5f1caa270b54cb003b62919a24503f5343147e6257c92b552802e83580cd6b63.png" src="../_images/5f1caa270b54cb003b62919a24503f5343147e6257c92b552802e83580cd6b63.png" />
+</div>
+</div>
+<p>Notice how we can make a map with just one line of code, <code class="docutils literal notranslate"><span class="pre">makeMap(data,</span> <span class="pre">&quot;Energy</span> <span class="pre">burden</span> <span class="pre">(percentile)&quot;)</span></code>! We can then reuse this function <code class="docutils literal notranslate"><span class="pre">makeMap()</span></code> with other data, without needing to re-write all of the code to make the map. This is a great use of functions: helping us simplify our code and make it easier to repeat analyses.</p>
+</section>
+<section id="question-1-make-a-map-with-another-column-from-the-dataset">
+<h3>Question 1: Make a map with another column from the dataset<a class="headerlink" href="#question-1-make-a-map-with-another-column-from-the-dataset" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Refer back to the code above to see the list of all column names</span>
+<span class="c1"># Write code here</span>
+<span class="n">makeMap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="hint">
+<h4>Hint<a class="headerlink" href="#hint" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution 1: You can use the makeMap function we defined earlier, like so:</span>
+
+<span class="n">makeMap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Unemployment (percent) (percentile)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OR</span>
+<span class="c1"># Solution 2: You can also use the original code, like so:</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Unemployment (percent) (percentile)&#39;</span><span class="p">,</span> <span class="c1"># Name of the column</span>
+          <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+          <span class="n">legend_kwds</span> <span class="o">=</span> <span class="p">{</span>
+              <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Unemployment (percent) (percentile)&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;shrink&#39;</span><span class="p">:</span> <span class="mf">0.8</span>
+          <span class="p">},</span>
+          <span class="n">missing_kwds</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Missing Data&#39;</span>
+            <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unemployment Rate (Percentile) </span><span class="se">\n</span><span class="s1">Census Tracts in </span><span class="si">{</span><span class="n">state_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Source: The Climate and Economic Justice Screening Tool </span><span class="se">\n</span><span class="s1">by the White House Council on Environmental Quality&#39;</span><span class="p">,</span>
+            <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">.08</span><span class="p">),</span>
+            <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;figure fraction&#39;</span><span class="p">,</span>
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+            <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#555555&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.08, 0.08, &#39;Source: The Climate and Economic Justice Screening Tool \nby the White House Council on Environmental Quality&#39;)
+</pre></div>
+</div>
+<img alt="../_images/2639433ba2bda04d69de7271237f69386eb85815b969584290efdb3bf54ff0d4.png" src="../_images/2639433ba2bda04d69de7271237f69386eb85815b969584290efdb3bf54ff0d4.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="checkpoint-2-in-the-pm2-5-percentile-map-was-there-anything-surprising-to-you-about-how-the-data-is-distributed-across-the-state-were-there-any-areas-with-especially-high-or-low-pm2-5-small-particles">
+<h3>Checkpoint 2: In the <code class="docutils literal notranslate"><span class="pre">PM2.5</span> <span class="pre">Percentile</span></code> map, was there anything surprising to you about how the data is distributed across the state? Were there any areas with especially high or low PM2.5 (small particles)?<a class="headerlink" href="#checkpoint-2-in-the-pm2-5-percentile-map-was-there-anything-surprising-to-you-about-how-the-data-is-distributed-across-the-state-were-there-any-areas-with-especially-high-or-low-pm2-5-small-particles" title="Link to this heading">#</a></h3>
+<p>Write your answer to this question in the text block below:</p>
+</section>
+<section id="part-2-correlation-and-graphing">
+<h3>Part 2: Correlation and Graphing<a class="headerlink" href="#part-2-correlation-and-graphing" title="Link to this heading">#</a></h3>
+<p>In Python, we can also calculate statistics and find the correlation between different variables. View some examples below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list of the names of columns that we are interested in</span>
+<span class="n">columns_subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Percent Black or African American alone&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Proximity to hazardous waste sites (percentile)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Energy burden (percentile)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;PM2.5 in the air (percentile)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Adjusted percent of individuals below 200</span><span class="si">% F</span><span class="s1">ederal Poverty Line (percentile)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Housing burden (percent) (percentile)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Unemployment (percent) (percentile)&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns_subset</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;spearman&#39;</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/add1338b0f3a99ff48b4d48b2ffa92b1064cbb8b5264a728e525f64cd591d102.png" src="../_images/add1338b0f3a99ff48b4d48b2ffa92b1064cbb8b5264a728e525f64cd591d102.png" />
+</div>
+</div>
+</section>
+<section id="question-2-find-the-correlation-between-variables-you-re-interested-in">
+<h3>Question 2: Find the correlation between variables you’re interested in<a class="headerlink" href="#question-2-find-the-correlation-between-variables-you-re-interested-in" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">columns_subset</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns_subset</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;spearman&#39;</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Hint<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify column names below (you can use other columns)</span>
+<span class="n">columns_subset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Linguistic isolation (percent)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Unemployment (percent)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Wastewater discharge&#39;</span><span class="p">]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">columns_subset</span><span class="p">]</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;spearman&#39;</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../_images/dfd4e4a6239c246ecefc6e0e752203d301a5599873b2adfac4fb11330984f346.png" src="../_images/dfd4e4a6239c246ecefc6e0e752203d301a5599873b2adfac4fb11330984f346.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-data-analysis">
+<h3>Part 3: Data Analysis<a class="headerlink" href="#part-3-data-analysis" title="Link to this heading">#</a></h3>
+<p>One way we can analyze data using Python is by sorting the data to show the census tracts with the highest or lowest values in a specific column. View some examples below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which census tracts have the highest unemployment rate in the state?</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Unemployment (percent)&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> \
+    <span class="p">[[</span><span class="s1">&#39;NAMELSAD10&#39;</span><span class="p">,</span><span class="s1">&#39;Unemployment (percent)&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Show the first 20</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-e1d2c429-cd02-4ee9-8581-933910ca296f" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NAMELSAD10</th>
+      <th>Unemployment (percent)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2788</th>
+      <td>Census Tract 9891</td>
+      <td>47.0</td>
+    </tr>
+    <tr>
+      <th>2155</th>
+      <td>Census Tract 2010</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Census Tract 5519</td>
+      <td>33.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Census Tract 511</td>
+      <td>33.0</td>
+    </tr>
+    <tr>
+      <th>2346</th>
+      <td>Census Tract 151.02</td>
+      <td>32.0</td>
+    </tr>
+    <tr>
+      <th>783</th>
+      <td>Census Tract 1</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>1032</th>
+      <td>Census Tract 15</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>2620</th>
+      <td>Census Tract 69</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>2485</th>
+      <td>Census Tract 200</td>
+      <td>28.0</td>
+    </tr>
+    <tr>
+      <th>2716</th>
+      <td>Census Tract 81.01</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>2340</th>
+      <td>Census Tract 177.01</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>1893</th>
+      <td>Census Tract 4</td>
+      <td>27.0</td>
+    </tr>
+    <tr>
+      <th>1038</th>
+      <td>Census Tract 22</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>2418</th>
+      <td>Census Tract 332</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>1544</th>
+      <td>Census Tract 6.02</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>2675</th>
+      <td>Census Tract 300</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>2548</th>
+      <td>Census Tract 168</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2484</th>
+      <td>Census Tract 199</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2160</th>
+      <td>Census Tract 813</td>
+      <td>25.0</td>
+    </tr>
+    <tr>
+      <th>2628</th>
+      <td>Census Tract 117</td>
+      <td>25.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e1d2c429-cd02-4ee9-8581-933910ca296f')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-e1d2c429-cd02-4ee9-8581-933910ca296f button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-e1d2c429-cd02-4ee9-8581-933910ca296f');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-6cb32fa5-f99b-4650-9ace-1e83e5210904">
+  <button class="colab-df-quickchart" onclick="quickchart('df-6cb32fa5-f99b-4650-9ace-1e83e5210904')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-6cb32fa5-f99b-4650-9ace-1e83e5210904 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="question-3-which-census-tracts-have-the-highest-exposure-to-wasterwater-discharge">
+<h3>Question 3: Which census tracts have the highest exposure to wasterwater discharge?<a class="headerlink" href="#question-3-which-census-tracts-have-the-highest-exposure-to-wasterwater-discharge" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>Hint<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Copy the code and use the “Wastewater discharge” column</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Which census tracts have the highest exposure to wastewater dischrage?</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;COLUMN NAME&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> \
+    <span class="p">[[</span><span class="s1">&#39;NAMELSAD10&#39;</span><span class="p">,</span><span class="s1">&#39;COLUMN NAME&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Show the first 20</span>
+</pre></div>
+</div>
+</section>
+<section id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Wastewater discharge&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> \
+    <span class="p">[[</span><span class="s1">&#39;NAMELSAD10&#39;</span><span class="p">,</span><span class="s1">&#39;Wastewater discharge&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># Show the first 20</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-43ef2c27-acce-4c0a-a345-ff091cbbc2bd" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NAMELSAD10</th>
+      <th>Wastewater discharge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1565</th>
+      <td>Census Tract 130.02</td>
+      <td>378.76</td>
+    </tr>
+    <tr>
+      <th>3701</th>
+      <td>Census Tract 4</td>
+      <td>212.27</td>
+    </tr>
+    <tr>
+      <th>1669</th>
+      <td>Census Tract 129</td>
+      <td>65.36</td>
+    </tr>
+    <tr>
+      <th>3660</th>
+      <td>Census Tract 19.02</td>
+      <td>64.35</td>
+    </tr>
+    <tr>
+      <th>3702</th>
+      <td>Census Tract 5</td>
+      <td>57.07</td>
+    </tr>
+    <tr>
+      <th>3657</th>
+      <td>Census Tract 6</td>
+      <td>45.01</td>
+    </tr>
+    <tr>
+      <th>1221</th>
+      <td>Census Tract 250.14</td>
+      <td>44.11</td>
+    </tr>
+    <tr>
+      <th>946</th>
+      <td>Census Tract 101.03</td>
+      <td>38.69</td>
+    </tr>
+    <tr>
+      <th>3774</th>
+      <td>Census Tract 3.01</td>
+      <td>35.97</td>
+    </tr>
+    <tr>
+      <th>1664</th>
+      <td>Census Tract 130.01</td>
+      <td>33.38</td>
+    </tr>
+    <tr>
+      <th>1517</th>
+      <td>Census Tract 250.15</td>
+      <td>25.61</td>
+    </tr>
+    <tr>
+      <th>3775</th>
+      <td>Census Tract 3.02</td>
+      <td>23.60</td>
+    </tr>
+    <tr>
+      <th>2446</th>
+      <td>Census Tract 205</td>
+      <td>23.34</td>
+    </tr>
+    <tr>
+      <th>1477</th>
+      <td>Census Tract 264</td>
+      <td>22.22</td>
+    </tr>
+    <tr>
+      <th>2082</th>
+      <td>Census Tract 250.17</td>
+      <td>21.91</td>
+    </tr>
+    <tr>
+      <th>1271</th>
+      <td>Census Tract 250.16</td>
+      <td>20.50</td>
+    </tr>
+    <tr>
+      <th>1665</th>
+      <td>Census Tract 130.04</td>
+      <td>17.16</td>
+    </tr>
+    <tr>
+      <th>1116</th>
+      <td>Census Tract 36.07</td>
+      <td>15.95</td>
+    </tr>
+    <tr>
+      <th>1710</th>
+      <td>Census Tract 261.01</td>
+      <td>13.37</td>
+    </tr>
+    <tr>
+      <th>2544</th>
+      <td>Census Tract 214.06</td>
+      <td>12.56</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-43ef2c27-acce-4c0a-a345-ff091cbbc2bd')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-43ef2c27-acce-4c0a-a345-ff091cbbc2bd button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-43ef2c27-acce-4c0a-a345-ff091cbbc2bd');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-94ff9c06-bc1c-40bd-95bc-65033f36a0cc">
+  <button class="colab-df-quickchart" onclick="quickchart('df-94ff9c06-bc1c-40bd-95bc-65033f36a0cc')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-94ff9c06-bc1c-40bd-95bc-65033f36a0cc button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="further-resources">
+<h1>Further Resources<a class="headerlink" href="#further-resources" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sustainability-gis.readthedocs.io/en/latest/lessons/L1/intro-to-python-geostack.html">Spatial Data Science for Sustainable Development course taught by Henrikki Tenkanen</a></p></li>
+<li><p><a class="reference external" href="https://www.learndatasci.com/tutorials/geospatial-data-python-geopandas-shapely/">Analyze Geospatial Data in Python: GeoPandas and Shapely by Ioannis Prapas</a></p></li>
+<li><p><a class="reference external" href="https://geopandas.org/en/stable/docs/user_guide/mapping.html">Mapping and Plotting with Python Package GeoPandas</a></p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Intro to Python (Optional)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-to-geospatial-analysis-in-python">Intro to Geospatial Analysis in Python</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-climate-and-economic-justice">Activity: Climate and Economic Justice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-1-we-have-all-of-our-data-loaded-what-do-you-think-about-programming-so-far-is-there-anything-unexpected-to-you-about-python">Checkpoint 1: We have all of our data loaded. What do you think about programming so far? Is there anything unexpected to you about Python?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-mapping">Part 1: Mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1-make-a-map-with-another-column-from-the-dataset">Question 1: Make a map with another column from the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">Hint</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checkpoint-2-in-the-pm2-5-percentile-map-was-there-anything-surprising-to-you-about-how-the-data-is-distributed-across-the-state-were-there-any-areas-with-especially-high-or-low-pm2-5-small-particles">Checkpoint 2: In the <code class="docutils literal notranslate"><span class="pre">PM2.5</span> <span class="pre">Percentile</span></code> map, was there anything surprising to you about how the data is distributed across the state? Were there any areas with especially high or low PM2.5 (small particles)?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-correlation-and-graphing">Part 2: Correlation and Graphing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2-find-the-correlation-between-variables-you-re-interested-in">Question 2: Find the correlation between variables you’re interested in</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hint</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-data-analysis">Part 3: Data Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3-which-census-tracts-have-the-highest-exposure-to-wasterwater-discharge">Question 3: Which census tracts have the highest exposure to wasterwater discharge?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Hint</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#further-resources">Further Resources</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Olivia Zhang
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

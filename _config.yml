@@ -1,0 +1,30 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Data for Climate Action Workshops
+author: Olivia Zhang
+logo: logo_data.png
+
+# Do not execute notebooks each build
+execute:
+  execute_notebooks: 'off'
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/via-zhang/data-workshops  # Online location of your book
+  branch: main
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  favicon: "logo_pin.png"
+  use_issues_button: true
+  use_repository_button: true
