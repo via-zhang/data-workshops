@@ -1,3 +1,3 @@
-# Data Science for Climate Action Workshops
+# Data for Climate Action Workshops
 
-Introductory workshops that introduce how to use Python to analyze complex datasets related to climate action.
+This site includes introductory workshops that show how to use Python to analyze complex datasets related to climate action.
