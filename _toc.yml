@@ -5,3 +5,4 @@ format: jb-book
 root: intro
 chapters:
 - file: docs/intro_fire_analysis
+- file: docs/hurricane_impact_analysis
