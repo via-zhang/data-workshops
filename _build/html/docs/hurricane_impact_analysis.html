@@ -448,6 +448,7 @@ document.write(`
 <section id="tree-loss">
 <h2>Tree loss:<a class="headerlink" href="#tree-loss" title="Link to this heading">#</a></h2>
 <p>Apply the Tree Detection model on aerial images taken at the same area, from before and after the disaster. Then, compare the outputs to see how trees have changed after the disaster.</p>
+<p><img alt="Image with green boxes over most trees, detected with AI model" src="../_images/ex_tree_detections.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter the names of your images as they appear in your ArcGIS Pro contents list</span>
@@ -503,6 +504,7 @@ document.write(`
 <section id="segmentation-based-on-prompt-debris-flooding-etc">
 <h2>Segmentation based on prompt (debris, flooding, etc.)<a class="headerlink" href="#segmentation-based-on-prompt-debris-flooding-etc" title="Link to this heading">#</a></h2>
 <p>Apply the Prompt-Based Segmentation to find “debris,” “flooded roads,” or other impacts in the post-disaster images.</p>
+<p><img alt="Image with flood detection results" src="../_images/ex_flood_detections.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter the names of your images as they appear in your ArcGIS Pro contents list</span>
@@ -523,7 +525,7 @@ document.write(`
 <span class="c1"># model_arguments = &quot;prompt debris; confidence 0.5&quot;</span>
 <span class="c1"># model_arguments = &quot;prompt &#39;flooded roads&#39;; confidence 0.5&quot;</span>
 
-<span class="n">model_arguments</span> <span class="o">=</span> <span class="s2">&quot;prompt &#39;flooded roads&#39;; confidence 0.5&quot;</span>
+<span class="n">model_arguments</span> <span class="o">=</span> <span class="s2">&quot;prompt &#39;&#39;; confidence 0.5&quot;</span>
 
 <span class="c1"># Enter path to where you want the output tree detections stored (can be a folder or geodatabase)</span>
 <span class="c1"># For example:</span>
