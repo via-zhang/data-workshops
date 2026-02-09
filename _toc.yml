@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: docs/intro_fire_analysis
 - file: docs/hurricane_impact_analysis
+- file: docs/intro_census_data
